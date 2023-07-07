@@ -1,11 +1,11 @@
 import React from "react";
 
-import {Row, Col, Container } from "react-bootstrap";
-import NavBar from "../components/navBar";
+import { Col, Container, Row } from "react-bootstrap";
 import Category from "../components/category";
-import Review from "../components/review";
 import Jumbotron from "../components/jambotron";
+import NavBar from "../components/navBar";
 import PostComments from "../components/postComments";
+import Review from "../components/review";
 
 function HomePage() {
   return (

@@ -33,7 +33,7 @@ export const fetchPostCommenti = createAsyncThunk(
 export const deleteCommenti = createAsyncThunk(
   'commenti/deleteCommenti',
   async (comment) => {
-    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + comment._id, {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + comment, {
       method: "DELETE",
       headers: {
         Authorization: ApiKey,
@@ -45,6 +45,25 @@ export const deleteCommenti = createAsyncThunk(
   }
 )
 
+export const updateCommenti = createAsyncThunk(
+  'commenti/updateCommenti',
+  async (comment) => {
+    console.log(comment);
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + comment._id, {
+      method: "PUT",
+      body: JSON.stringify(comment),
+      headers: {
+        Authorization: ApiKey,
+        "Content-Type": "application/json"
+      }
+    })
+    const data = await response.json()
+    return data
+  }
+)
+
+
+
 const initialState = {
   apiArray: [],
   originalArray: [],
@@ -54,8 +73,7 @@ const initialState = {
   postComment: "",
   postRate: 1,
   postElementId: "",
-
-
+  currentComment: undefined
 };
 
 const apiSlice = createSlice({
@@ -77,6 +95,9 @@ const apiSlice = createSlice({
       state.apiArray = state.originalArray.filter((item) => {
         return item.title.toLowerCase().includes(search.toLowerCase());
       })
+    },
+    setCurrentComment: (state, action) => {
+      state.currentComment = action.payload;
     },
     openModal: (state, action) => {
       const index = action.payload;
@@ -110,18 +131,11 @@ const apiSlice = createSlice({
     builder.addCase(fetchCommenti.pending, (state, action) => {
       state.reviewArray = []
     })
-    builder.addCase(fetchPostCommenti.fulfilled, (state, action) => {
-      state.reviewArray = action.payload
-    })
-    builder.addCase(fetchPostCommenti.pending, (state, action) => {
-      state.reviewArray = []
-    }
-    )
   }
 
 });
 
 
 export const { apiCall, setCategory, setSearch, openModal, 
-  setOriginal, setSelected,BookDetail,setPostComment,setPostRate,setPostElementId } = apiSlice.actions;
+  setOriginal, setSelected,BookDetail,setPostComment,setPostRate,setPostElementId, setCurrentComment } = apiSlice.actions;
 export default apiSlice.reducer;

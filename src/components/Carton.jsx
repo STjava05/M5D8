@@ -33,7 +33,7 @@ export default function Carton() {
     <div>
       <Row>
         {apiArray && apiArray.map((carte, index) => (
-          <Col key={index} className={carte.selected ? "select" : ""}>
+          <Col key={index} className={`d-flex justify-content-center align-items-center ${carte.selected ? "select" : ""}`}>
             <Card style={{ width: '18rem' }}className='carte'>
               <Card.Img variant="top" src={carte.img} onClick={()=>handleClick(index)} />
               <Card.Body>

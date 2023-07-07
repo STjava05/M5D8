@@ -1,37 +1,35 @@
 
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
-import {  fetchPostCommenti,setPostComment } from "./reducers/api";
+import { BsSendFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 import RatingStar from "./ratingStar";
-import { BsSendFill} from "react-icons/bs";
-
+import { fetchPostCommenti, setPostComment, setPostRate, fetchCommenti } from "./reducers/api";
 
 
 const PostComments = ({ rate }) => {
-    const postCommenti = useSelector(state => state.api.postComment);
-    const postRate = useSelector(state => state.api.postRate);
-    const postElementId = useSelector(state => state.api.postElementId);
-  
+  const postCommenti = useSelector(state => state.api.postComment);
+  const postRate = useSelector(state => state.api.postRate);
+  const postElementId = useSelector(state => state.api.postElementId);
+
   const dispatch = useDispatch();
+ 
+
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Evita il comportamento predefinito del submit del form
-
     const review = {
-     comment:postCommenti ,
+      comment: postCommenti,
       rate: postRate,
       elementId: postElementId// Aggiungi l'elementId corretto
     };
+    dispatch(fetchPostCommenti(review)).then(() => {
+      dispatch(fetchCommenti(postElementId));
+      dispatch(setPostComment(""));
+      dispatch(setPostRate(1));
+    });
 
-    // Dispatch dell'azione per l'invio del commento
-    dispatch(fetchPostCommenti(review));
-
-    // Reset del valore del commento
-    dispatch(setPostComment(''));
-    
-    console.log(review);
   };
-  
+
 
   return (
     <div className="comment">
@@ -42,11 +40,11 @@ const PostComments = ({ rate }) => {
           cols="38"
           placeholder="commento"
           className="textaera"
-          
+          value={postCommenti} // Aggiungi il valore del commento
           onChange={(e) => dispatch(setPostComment(e.target.value))} // Aggiorna il valore del commento
-        /><br/>
+        /><br />
         <RatingStar />
-        <button className="send" type="submit">< BsSendFill size={30}/></button>
+        <button className="send" type="submit">< BsSendFill size={30} /></button>
       </form>
     </div>
   );
