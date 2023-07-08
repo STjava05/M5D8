@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import ModalCommenti from './modalCommenti';
 import { BookDetail, fetchCommenti, openModal, setPostElementId, setSelected } from './reducers/api';
 import {Link} from 'react-router-dom' 
+import { BsFillChatLeftTextFill,BsFillHandIndexThumbFill } from "react-icons/bs";
 
 
 export default function Carton() {
@@ -41,9 +42,9 @@ export default function Carton() {
 
                 <Card.Text>{carte.category}</Card.Text>
                 <Card.Text>{carte.price} $</Card.Text>
-                <Button variant="secondary" onClick={()=> handleOpenModal(index,carte.asin)}>commenti</Button>
+                <Button variant="secondary" onClick={()=> handleOpenModal(index,carte.asin)}>< BsFillChatLeftTextFill  size={30} /></Button>
                 
-                <Button onClick={()=>handleDetailComent(carte.asin)} variant="info" className='ms-5'> <Link to={`/books/${carte.asin}`}>Detail</Link></Button>
+                <Button onClick={()=>handleDetailComent(carte.asin)} variant="info" className='ms-5'> <Link to={`/books/${carte.asin}`}><BsFillHandIndexThumbFill  size={30} /></Link></Button>
               </Card.Body>
               
             </Card>

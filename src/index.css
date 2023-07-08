@@ -26,18 +26,18 @@ code {
   color: black;
 }
 .dark-mode{
-  background-color: #05014a !important;
+  background-color: #05878a !important;
   color: white;
 }
 /* Path: src\App.css */
 
 .dark-mode .carte{
-  background-color: 	#05014a !important;
+  background-color: 	#05878a !important;
   color: white;
 
 }
 .navigation{
-  background-color: 	#05014a !important;
+  background-color: 	#05878a !important;
 
 }
 
