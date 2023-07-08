@@ -14,18 +14,16 @@ function HomePage() {
       <Jumbotron />
       <Container>
         <Row>
-            <Col sm={9} >
-              <Row>
-          <Category />
-              </Row>  
+          <Col sm={9}>
+            <Row>
+              <Category />
+            </Row>
+          </Col>
 
-            </Col>
-
-            <Col sm={3}>
-          <Review />
-          <PostComments />
-            </Col>
-            
+          <Col sm={3}>
+            <Review />
+            <PostComments />
+          </Col>
         </Row>
       </Container>
     </>
