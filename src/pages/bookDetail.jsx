@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import React from "react";
 import Review from "../components/review";
-import RatingStar from "../components/ratingStar";
+
 import "../components/ratingStar.css"
 
 
@@ -12,7 +12,7 @@ const BookDetail = () => {
 
   console.log(Dettagli);
 
-  console.log("ciao");
+  
   return (
     <div className="d-flex justify-content-center align-items-center ">
       {Dettagli && (

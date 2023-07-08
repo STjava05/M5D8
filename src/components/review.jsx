@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import RatingStar from "./ratingStar";
 import { deleteCommenti, fetchCommenti, setCurrentComment, setPostComment, setPostRate, updateCommenti } from "./reducers/api";
 import UserStar from "./userStar";
+import { AiFillEdit } from "react-icons/ai";
+import { BsFillTrashFill} from "react-icons/bs";
+
 
 
 
@@ -49,16 +52,16 @@ const Review = () => {
             <p>{review.comment}</p>
             <p>{review.rate}</p>
             <p>{review.author}</p>
-            <Button variant="danger" onClick={() => dispatch(deleteCommenti(review._id)).then(() => dispatch(fetchCommenti(review.elementId)))}>Delete</Button>
-            <Button variant="success" onClick={() => handleEdit(review)}>Edit</Button>
+            <Button variant="danger" onClick={() => dispatch(deleteCommenti(review._id)).then(() => dispatch(fetchCommenti(review.elementId)))}><BsFillTrashFill size={20}/></Button>
+            <Button className="m-2" variant="success" onClick={() => handleEdit(review)}><AiFillEdit size={20} /></Button>
             <UserStar rate={review.rate} />
           </div>
         ))}
       </div>
       {isOpen &&
         <Modal show={isOpen} onHide={() => setIsOpen(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>Modifica</Modal.Title>
           </Modal.Header>
           <textarea onChange={(e)=>dispatch(setPostComment(e.target.value))} >{postCommenti}</textarea>
           <RatingStar />
@@ -67,7 +70,7 @@ const Review = () => {
               Close
             </Button>
             <Button variant="primary" onClick={handleSubmit} >
-              Save Changes
+              change
             </Button>
           </Modal.Footer>
         </Modal>
