@@ -33,8 +33,8 @@ function NavBar() {
     dispatch(setSearch(inputRef.current.value));
   };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary mb-5 w-100">
-      <Container fluid className="navigation">
+    <Navbar  expand="lg" className=" mb-5 w-100 navBar">
+      <Container fluid >
         {/* <Navbar.Brand href="#">Navbar scroll</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

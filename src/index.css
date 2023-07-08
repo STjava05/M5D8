@@ -23,21 +23,23 @@ code {
 
 .light-mode{
   background-color: white !important;
-  color: black;
+  color: rgb(45, 45, 45);
 }
 .dark-mode{
-  background-color: #05878a !important;
-  color: white;
+  background-color: 	#182c25 !important;
+  color: white !important;
 }
 /* Path: src\App.css */
 
 .dark-mode .carte{
-  background-color: 	#05878a !important;
-  color: white;
+  background-color: 		#182c25!important;
+  color: white !important;
 
 }
-.navigation{
-  background-color: 	#05878a !important;
-
+.dark-mode .navBar .nav-link{
+  color:white !important;
+  
 }
-
+.dark-mode .navBar{
+  background-color: #13211c !important;
+}
