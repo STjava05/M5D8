@@ -6,6 +6,7 @@ import Jumbotron from "../components/jambotron";
 import NavBar from "../components/navBar";
 import PostComments from "../components/postComments";
 import Review from "../components/review";
+import MyFooter from "../components/myFooter";
 
 function HomePage() {
   return (
@@ -25,7 +26,9 @@ function HomePage() {
             <PostComments />
           </Col>
         </Row>
+       
       </Container>
+      <MyFooter />
     </>
   );
 }

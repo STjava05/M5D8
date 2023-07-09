@@ -3,6 +3,8 @@ import React from "react";
 import Review from "../components/review";
 
 import "../components/ratingStar.css";
+import MyFooter from "../components/myFooter";
+
 
 const BookDetail = () => {
   const { Dettagli } = useSelector((state) => state.api);
@@ -10,6 +12,7 @@ const BookDetail = () => {
   console.log(Dettagli);
 
   return (
+    <>
     <div className="d-flex justify-content-center align-items-center ">
       {Dettagli && (
         <div className="detail">
@@ -20,8 +23,13 @@ const BookDetail = () => {
           <p>{Dettagli.price} $</p>
         </div>
       )}
+
       <Review />
+      
+     
     </div>
+    <MyFooter />
+    </>
   );
 };
 export default BookDetail;

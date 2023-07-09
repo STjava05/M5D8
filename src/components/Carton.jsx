@@ -58,7 +58,7 @@ export default function Carton() {
                     variant="secondary"
                     onClick={() => handleOpenModal(index, carte.asin)}
                   >
-                    <BsFillChatLeftTextFill size={30} />
+                    <BsFillChatLeftTextFill size={20} />
                   </Button>
 
                   <Button
@@ -68,7 +68,7 @@ export default function Carton() {
                   >
                     {" "}
                     <Link to={`/books/${carte.asin}`}>
-                      <BsFillHandIndexThumbFill size={30} />
+                      <BsFillHandIndexThumbFill size={20} />
                     </Link>
                   </Button>
                 </Card.Body>
