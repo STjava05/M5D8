@@ -4,6 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import "../components/ratingStar.css";
 import { setPostRate } from "./reducers/api";
 
+// il componente RatingStar, che viene per consentire all'utente di selezionare
+// una valutazione a stelle per il libro.
+//Durante il passaggio del mouse sopra una stella, viene chiamata la funzione setHover 
+//per impostare lo stato hover sul valore della valutazione corrispondente.
+
 const RatingStar = () => {
   const dispatch = useDispatch();
   const postRate = useSelector((state) => state.api.postRate);

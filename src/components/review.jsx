@@ -10,8 +10,8 @@ import { BsFillTrashFill} from "react-icons/bs";
 
 
 
-
-
+// il componente Review, gestisce la visualizzazione dei commenti e fornisce funzionalità di modifica dei commenti.
+// utilizza lo stato locale isOpen per gestire l'apertura e la chiusura di un modale per la modifica del commento.
 const Review = () => {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -24,12 +24,17 @@ const Review = () => {
   const postCommenti = useSelector(state => state.api.postComment);
   const postElementId = useSelector(state => state.api.postElementId);
 
-
+//La funzione handleEdit viene chiamata quando si fa clic sul pulsante di modifica di un commento. 
+//Essa imposta lo stato currentComment con il commento selezionato, apre il modale di modifica e imposta il testo del commento nel campo di input.
   const handleEdit = (review) => {
     dispatch(setCurrentComment(review));
     setIsOpen(true);
     dispatch(setPostComment(review.comment));
   };
+
+//La funzione handleSubmit viene chiamata quando si fa clic sul pulsante di invio del modale di modifica.
+//Essa crea un nuovo oggetto di commento con il testo del commento e il valore di rate e lo passa alla funzione updateCommenti.
+//Dopo aver aggiornato il commento, viene chiamata la funzione fetchCommenti per aggiornare la lista dei commenti.
 
   const handleSubmit = () => {
     const newReview = {

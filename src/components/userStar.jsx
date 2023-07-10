@@ -1,5 +1,9 @@
 import React from "react";
 
+
+// il componente UserStar, visualizza una valutazione a stelle basata su un valore numerico rate
+// che viene passato come props.
+// Se il valore di rate è 3, verranno visualizzate 3 stelle piene e 2 stelle vuote.
 const UserStar = ({ rate }) => {
   return (
     <div>

@@ -1,33 +1,31 @@
 import { Button, Card, Col, Row } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
-// import ModalCommenti from './modalCommenti';
-import {
-  BookDetail,
-  fetchCommenti,
-  openModal,
-  setPostElementId,
-  setSelected,
-} from "./reducers/api";
+
+import {BookDetail,fetchCommenti,openModal,setPostElementId,setSelected,} from "./reducers/api";
 import { Link } from "react-router-dom";
-import {
-  BsFillChatLeftTextFill,
-  BsFillHandIndexThumbFill,
-} from "react-icons/bs";
+import {BsFillChatLeftTextFill,BsFillHandIndexThumbFill,} from "react-icons/bs";
+
+
+//il componente Carton, che gestisce la visualizzazione di un elenco di carte con dati provenienti da apiArray
 
 export default function Carton() {
   const dispatch = useDispatch();
   const apiArray = useSelector((state) => state.api.apiArray);
-
+//La funzione handleOpenModal viene chiamata quando si fa clic sul pulsante "commenti" 
+//di una carta. Essa invia azioni per aprire un modale, ottenere i commenti associati all'elemento selezionato e impostare l'ID dell'elemento.
   const handleOpenModal = (index, asin) => {
     dispatch(openModal(index));
     dispatch(fetchCommenti(apiArray[index].asin));
     dispatch(setPostElementId(asin));
   };
 
+  //La funzione handleClick viene chiamata quando si fa clic su una carta. Essa invia un'azione per selezionare la carta corrispondente.
   const handleClick = (index) => {
     dispatch(setSelected(index));
   };
+
+  //La funzione handleDetailComent viene chiamata quando si fa clic sul pulsante "Detail" di una carta. Essa invia un'azione per ottenere i dettagli del libro corrispondente all'asin della carta.
   const handleDetailComent = (asin) => {
     dispatch(BookDetail(asin));
   };

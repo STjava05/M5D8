@@ -5,7 +5,8 @@ import Review from "../components/review";
 import "../components/ratingStar.css";
 import MyFooter from "../components/myFooter";
 
-
+// il componente BookDetail mostra i dettagli del libro selezionato 
+//e i relativi commenti, fornendo una vista dettagliata della pagina del libro.
 const BookDetail = () => {
   const { Dettagli } = useSelector((state) => state.api);
 

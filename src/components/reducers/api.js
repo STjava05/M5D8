@@ -2,6 +2,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
+//Questo modulo viene utilizzato per gestire lo stato relativo alle chiamate API e 
+//ai commenti nell'applicazione. Le azioni definite consentono di recuperare, inviare, eliminare 
+//e aggiornare i commenti, e lo stato viene modificato in base alle interazioni dell'utente.
+
 const ApiKey =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdkZDIyOTM5N2RmMTAwMTRkZGRkYjgiLCJpYXQiOjE2ODg2NDA3NjksImV4cCI6MTY4OTg1MDM2OX0.N0MTkbfQrBoKQ9niJjM1icRMh8Lu47QGOWCgrkmbjOQ"
 export const fetchCommenti = createAsyncThunk(
   'commenti/fetchCommenti',
